@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'gradient-rainbow':
+          'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)',
+      },
     },
   },
   plugins: [],

@@ -16,9 +16,13 @@ export default function Home() {
           <h1 className="text-5xl font-extrabold text-center mb-8">Welcome to Kidspiration!</h1>
           <p className="text-center text-lg">
             <span className="text-green-500">Daily Drops</span> of
-            <span className="text-blue-500">positive</span>
-            <span className="text-yellow-500">affirmations</span>
-            to inspire and motivate your kids.
+            <span className="text-blue-500"> positive</span>
+            <span className="text-yellow-500"> affirmations </span>
+            <span className="text-green-500 font-bold">TO</span>
+            <span className="text-purple-500"> inspire </span>
+            <span className="text-orange-500"> and </span>
+            <span className="text-pink-500"> motivate </span>
+            <span className="text-blue-500"> your kids.</span>
           </p>
         </div>
       </main>
