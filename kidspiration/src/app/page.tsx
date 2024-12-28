@@ -8,13 +8,18 @@ export default function Home() {
     <>
       <Head>
         <title>Kidspiration</title>
-        <meta name="description" content="Daily Drops of positive affirmations to inspire and motivate your kids." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${inter.className}`}>
+      <main className={inter.className}>
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-3xl font-bold">Welcome to Kidspiration!</h1>
+          <h1 className="text-5xl font-extrabold text-center mb-8">Welcome to Kidspiration!</h1>
+          <p className="text-center text-lg">
+            <span className="text-green-500">Daily Drops</span> of
+            <span className="text-blue-500">positive</span>
+            <span className="text-yellow-500">affirmations</span>
+            to inspire and motivate your kids.
+          </p>
         </div>
       </main>
     </>
