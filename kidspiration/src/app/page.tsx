@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="text-green-500 text-6xl font-extrabold mb-4">KIDDOMOTIVATE</h1>
         <h1 className="mb-2 list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           {"Grooming Kids with a difference "}
-          <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+          <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold text-gradient to-blue-500 to-red-500">
             'Daily drops of Positive dew'
           </code>
           .
