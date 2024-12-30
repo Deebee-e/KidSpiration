@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
+import "./globals.css";
+import NavBar from "@/components/NavBar";
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,6 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={inter.className}>
+        {/* Render the NavBar component here */}
+        <NavBar />
         <div className="flex flex-col items-center justify-center h-screen">
           <h1 className="text-5xl font-extrabold text-center mb-8">Welcome to KidSpiration!</h1>
           <p className="text-center text-lg">
