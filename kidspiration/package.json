@@ -10,19 +10,25 @@
   },
   "dependencies": {
     "@fontsource/geist-mono": "^5.1.1",
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
+    "flowbite-react": "^0.10.2",
+    "formik": "^2.4.6",
     "next": "15.1.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.1.2",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }

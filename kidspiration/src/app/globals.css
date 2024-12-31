@@ -4,6 +4,8 @@
 
 @tailwind utilities;
 
+@import './styles/fonts.css';
+
 :root {
 
 --foreground-rgb: 0, 300, 0;

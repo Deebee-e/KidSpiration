@@ -1,24 +1,92 @@
 "use client";
-  2 import { Button, Checkbox, Label } from "flowbite-react";
-  3 import { Formik, Field, Form, ErrorMessage } from "formik";
-  4 import * as Yup from "yup";
-  5
-  6 export default function Login() {
-  7   // Formik initial values and validation schema using Yup
-  8   const initialValues = {
-  9     email: "",
- 10     password: "",
- 11   };
- 12
- 13   const validationSchema = Yup.object({
- 14     email: Yup.string()
- 15       .email("Invalid email address")
- 16       .required("Email is required"),
- 17     password: Yup.string()
- 18       .min(6, "Password must be at least 6 characters long")
- 19       .required("Password is required"),
- 20   });
- 21
- 22   const handleSubmit = (values: any) => {
- 23     // Handle form submission
- 24     console.log(values);
+
+import { useState } from 'react';
+import { Button, Checkbox, Label, Input } from "flowbite-react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+export default function Login() {
+  const [remember, setRemember] = useState(false);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="w-96 p-6 bg-white rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-6">Login</h2>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className="mb-4">
+                <Label htmlFor="email">Email address</Label>
+                <Field
+                  name="email"
+                  type="email"
+                  id="email"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 dark:focus:border-blue-300 dark:focus:ring-blue-300"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500 mt-1"
+                />
+              </div>
+              <div className="mb-4">
+                <Label htmlFor="password">Password</Label>
+                <Field
+                  name="password"
+                  type="password"
+                  id="password"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 dark:focus:border-blue-300 dark:focus:ring-blue-300"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="text-red-500 mt-1"
+                />
+              </div>
+              <div className="flex items-center mb-4">
+                <Checkbox
+                  id="remember"
+                  checked={remember}
+                  onChange={(e) => setRemember(e.target.checked)}
+                />
+                <Label htmlFor="remember" className="ml-2">
+                  Remember me
+                </Label>
+              </div>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded"
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </div>
+  );
+}
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters long")
+    .required("Password is required"),
+});
+
+const handleSubmit = (values) => {
+  // Handle form submission (e.g., send data to server)
+  console.log(values);
+};
