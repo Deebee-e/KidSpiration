@@ -27,7 +27,7 @@ export default function Affirmation() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null); 
+  const slideRef = useRef(null);
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) =>
@@ -43,27 +43,28 @@ export default function Affirmation() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <img src="/images/Image2.jpg"/>
       <div className="relative w-full max-w-xl text-center">
-        <div 
-          className="flex justify-center items-center h-auto overflow-hidden" 
-          ref={slideRef} 
-        > 
+        <div
+          className="flex justify-center items-center h-auto overflow-hidden"
+          ref={slideRef}
+        >
           {affirmations.map((affirmation, index) => (
-            <div 
-              key={index} 
-              className={`${index === currentSlide ? "flex" : "hidden"} flex justify-center items-center`} 
+            <div
+              key={index}
+              className={`${index === currentSlide ? "flex" : "hidden"} flex justify-center items-center`}
             >
-              <p className="text-lg font-semibold text-black">{affirmation}</p> 
+              <p className="text-lg font-semibold text-black">{affirmation}</p>
             </div>
           ))}
         </div>
-        <button 
+        <button
           className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-70"
           onClick={prevSlide}
         >
           <Icon path={mdiChevronLeft} size={1.5} />
         </button>
-        <button 
+        <button
           className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-70"
           onClick={nextSlide}
         >

@@ -4,7 +4,7 @@
 
 @tailwind utilities;
 
-@import './styles/fonts.css';
+/* @import './styles/fonts.css'; 
 
 :root {
 
@@ -56,14 +56,14 @@ body {
    .text-balance {
      text-wrap: balance;                                    }
 
-
+   }
     /* Add the text-gradient class here */
   .text-gradient {
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
- }
+ 
 
 
  
