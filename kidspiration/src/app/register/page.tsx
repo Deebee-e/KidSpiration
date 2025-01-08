@@ -1,132 +1,50 @@
 "use client";
 
-import { useState } from 'react';
-import { Button, Checkbox, Label, Input } from "flowbite-react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { AuthLoginForm, AuthRegisterForm } from "@/features/auth";
+import { ChevronLeftCircle } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function Register() {
-  const [remember, setRemember] = useState(false);
-
-  const initialValues = {
-    username: "",
-    email: "",
-    password: "",
-  };
-
-  const validationSchema = Yup.object({
-    username: Yup.string()
-      .min(3, "Username must be at least 3 characters long")
-      .required("Username is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    password: Yup.string()
-      .min(6, "Password must be at least 6 characters long")
-      .required("Password is required"),
-  });
-
-  const handleSubmit = async (values) => {
-    try {
-      // Send form data to server (replace with your actual API call)
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (!response.ok) {
-        throw new Error('Registration failed');
-      }
-
-      // Handle successful registration (e.g., show success message, redirect)
-      console.log('Registration successful!');
-
-    } catch (error) {
-      console.error('Registration failed:', error);
-      // Handle registration errors (e.g., display error message to user)
-    }
-  };
-
+// export const metadata: Metadata = {
+//   title: 'Login Page',
+//   description: 'Enter Login Credentials to access your account.',
+// }
+export default function RegisterPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-96 p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6">Register</h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className="mb-4">
-                <Label htmlFor="username">Username</Label>
-                <Field
-                  name="username"
-                  type="text"
-                  id="username"
-                  placeholder="Enter username"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 dark:focus:border-blue-300 dark:focus:ring-blue-300"
-                />
-                <ErrorMessage
-                  name="username"
-                  component="div"
-                  className="text-red-500 mt-1"
-                />
+    <section>
+      <div className="flex min-h-screen justify-center">
+        <div className="relative hidden bg-[url('/images/kids-login.jpg')] bg-cover bg-center lg:block lg:w-2/5">
+        {/* <div className="absolute inset-0 bg-black opacity-30"></div> */}
+          <div className="px-10 pt-6 ">
+            <Link href="/">
+              <div className="flex items-center left-0 space-x-4">
+                <h2 className="text-4xl font-extrabold text-center text-white text-gradient-rainbow">KidSpiration</h2>
               </div>
-              <div className="mb-4">
-                <Label htmlFor="email">Email address</Label>
-                <Field
-                  name="email"
-                  type="email"
-                  id="email"
-                  placeholder="Enter email"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 dark:focus:border-blue-300 dark:focus:ring-blue-300"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-red-500 mt-1"
-                />
-              </div>
-              <div className="mb-4">
-                <Label htmlFor="password">Password</Label>
-                <Field
-                  name="password"
-                  type="password"
-                  id="password"
-                  placeholder="Enter password"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 dark:focus:border-blue-300 dark:focus:ring-blue-300"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="text-red-500 mt-1"
-                />
-              </div>
-              <div className="flex items-center mb-4">
-                <Checkbox
-                  id="remember"
-                  checked={remember}
-                  onChange={(e) => setRemember(e.target.checked)}
-                />
-                <Label htmlFor="remember" className="ml-2">
-                  Remember me
-                </Label>
-              </div>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded"
-              >
-                {isSubmitting ? "Registering..." : "Register"}
-              </Button>
-            </Form>
-          )}
-        </Formik>
+            </Link>
+          </div>
+          <div className="absolute bottom-20 left-0 right-0 m-auto sm:w-[30em]">
+            <p className="text-xm md:text-xl lg:text-md font-bold text-white">
+              “Daily Drops of positive affirmations to inspire and motivate your kids”
+            </p>
+          </div>
+        </div>
+        <div className="mx-auto flex w-full max-w-3xl items-center p-8 lg:w-5/5 lg:px-12">
+          <div className="mx-auto w-full md:w-8/12">
+            <Link href="/">
+              <h1 className="flex items-center space-x-2 text-sm font-bold capitalize tracking-wider text-[#2A94C7]">
+                <ChevronLeftCircle className="h-5 w-5" />
+                <span>Back Home</span>
+              </h1>
+            </Link>
+
+            <h1 className="my-10 text-3xl font-extrabold text-gray-900 md:text-4xl">
+              Register your <br /> Account
+            </h1>
+            <AuthRegisterForm />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
